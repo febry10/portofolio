@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <title>FEBRI YUDILA</title>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300i,400,400i,500,600,700,800" rel="stylesheet">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >	
+		
+		<!--Favicon for this site -->
+		<link rel="icon" href="assets/img/1.png"/>		
+		
+		<!-- Fonts -->
+		<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome.min.css">
+		
+		<!-- Icon -->
+		<link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
+		
+		<!-- Slicknav -->
+		<link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
+		
+		<!-- Owl-carousel -->
+		<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.min.css">
+		
+		<!-- Nivo Lightbox -->
+		<link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
+		
+		<!-- Text-animated -->
+		<link rel="stylesheet" type="text/css" href="assets/css/animated-headline.css" >
+		
+		<!-- Normalize -->
+		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+		
+		<!-- Animate -->
+		<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+		
+		<!-- Main Style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		
+		<!-- Responsive Style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">			
+  <style>
+
+
+/* Navbar dasar */
+.site-navigation {
+    background: linear-gradient(135deg, #000000, #3f2043, #2c5364);
+  padding: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+/* Navbar sticky / fixed */
+.site-navigation.fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Brand logo atau text */
+.navbar-brand p {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+/* Navbar toggler icon */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Navbar link */
+.nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ff5a00 !important;
+}
+
+/* Navbar list inline */
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+/* Responsive collapse menu background */
+.collapse.navbar-collapse {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Mobile dropdown nav links */
+@media (max-width: 767px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
+  .nav-link {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+}
+
+
+
+    
+    .container.mt-5 {
+        margin-top: 120px !important;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #000000, #3f2043, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      color: #00ffd5;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .message-box:hover {
+      transform: scale(1.02);
+    }
+
+    .message-box strong {
+      color: #00ffd5;
+    }
+
+    .btn-danger {
+      background-color: #ff005c;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .btn-danger:hover {
+      background-color: #c70045;
+    }
+
+    #logoutBtn {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+    <!-- START PRELOADER -->
+			<div class="preloader">
+				<div class="loader">
+					<div class="loader-outter"></div>
+					<div class="loader-inner"></div>
+
+					<span>FY</span>
+				</div>
+			</div>
+		<!-- END PRELOADER -->	
+        <div id="particles-js"></div>
+  <div class="container mt-5">
+    <h2>Dashboard Admin<br>Pesan & Kesan</h2>
+    <div id="messages"></div>
+  </div>
+
+  <nav class="navbar navbar-toggleable-sm fixed-top navbar-light bg-faded site-navigation dark_bg_menu">
+    
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><p>Fyd</p></a>          
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>				
+              <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Portfolio</a></li>				  			
+              <li class="nav-item"><a class="nav-link" href="index.html#blog">Project</a></li>			
+              <li class="nav-item"><a class="nav-link" href="index.html#contact">Pesan Dan Kesan</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Login Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>   
+
+<script src="assets/js/jquery-min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/modernizr-2.8.3.min.js"></script>
+		<script src="assets/js/particles.min.js"></script>
+		<script src="assets/js/app.js"></script>
+		<script src="assets/js/jquery.nav.js"></script>
+		<script src="assets/js/smooth-scroll.js"></script>
+		<script src="assets/js/owl.carousel.min.js"></script>
+		<script src="assets/js/jquery.mixitup.js"></script>
+		<script src="assets/js/animated-headline.js"></script>
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+		<script src="assets/js/wow.js"></script>
+		<script src="assets/js/jquery.easing.min.js"></script>  
+		<script src="assets/js/nivo-lightbox.js"></script>
+		<script src="assets/js/form-contact.js"></script>
+		<script src="assets/js/main.js"></script>
+		
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqJ0euv5eOpvzSfomw8tpBzNWWvf58YGA",
+      authDomain: "blacklotus-portfolio.firebaseapp.com",
+      projectId: "blacklotus-portfolio",
+      storageBucket: "blacklotus-portfolio.firebasestorage.app",
+      messagingSenderId: "293930750558",
+      appId: "1:293930750558:web:83e1036e8662f480e05acf",
+      measurementId: "G-LLZ18FCG0Z"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        db.collection("pesan_kesan").orderBy("timestamp", "desc").get().then(snapshot => {
+          const container = document.getElementById("messages");
+          if (snapshot.empty) {
+            container.innerHTML = "<p class='text-center'>Belum ada pesan atau kesan.</p>";
+          } else {
+            snapshot.forEach(doc => {
+  const data = doc.data();
+  const date = data.timestamp ? data.timestamp.toDate() : null;
+  const formattedDate = date 
+    ? new Intl.DateTimeFormat('id-ID', {
+        dateStyle: 'long',
+        timeStyle: 'short'
+      }).format(date)
+    : 'Waktu tidak tersedia';
+
+  const item = `
+    <div class="message-box">
+      <strong>${data.name}</strong> <small>(${data.email || "Anonim"})</small>
+      <p class="h4">${data.message}</p>
+      <div class="text-end"><small class="text-light">Dikirim pada: ${formattedDate}</small></div>
+    </div>
+  `;
+  container.innerHTML += item;
+});
+
+          }
+        });
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      auth.signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    });
+  </script>
+</body>
+</html>
