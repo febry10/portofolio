@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Admin</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script>
+    // Config Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqJ0euv5eOpvzSfomw8tpBzNWWvf58YGA",
+      authDomain: "blacklotus-portfolio.firebaseapp.com",
+      projectId: "blacklotus-portfolio",
+      storageBucket: "blacklotus-portfolio.firebasestorage.app",
+      messagingSenderId: "293930750558",
+      appId: "1:293930750558:web:83e1036e8662f480e05acf",
+      measurementId: "G-LLZ18FCG0Z"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.database();
+  </script>
+</head>
+<body>
+  <h2>Dashboard Admin</h2>
+  <button id="logoutBtn">Logout</button>
+  <div id="listPesan" style="margin-top:20px;"></div>
+
+  <script>
+    const listPesan = document.getElementById('listPesan');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Pastikan user sudah login
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = 'login.html';
+      } else {
+        // Ambil dan tampilkan data pesan
+        db.ref('feedback').on('value', snapshot => {
+          const data = snapshot.val();
+          listPesan.innerHTML = '';
+
+          if (data) {
+            Object.keys(data).forEach(key => {
+              const pesan = data[key];
+              listPesan.innerHTML += `
+                <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+                  <b>${pesan.nama}</b> (${pesan.emailUser}) <br />
+                  <small>${new Date(pesan.waktu).toLocaleString()}</small>
+                  <p>${pesan.pesan}</p>
+                </div>
+              `;
+            });
+          } else {
+            listPesan.textContent = "Belum ada pesan.";
+          }
+        });
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      auth.signOut().then(() => {
+        window.location.href = 'login.html';
+      });
+    });
+  </script>
+</body>
+</html>

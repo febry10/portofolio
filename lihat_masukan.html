@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lihat Masukan</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+  <h2>Daftar Masukan</h2>
+  <button id="logoutBtn">Logout</button>
+  <ul id="masukanList"></ul>
+
+  <script>
+    const auth = firebase.auth();
+    const db = firebase.database();
+
+    // Pastikan user sudah login, kalau belum arahkan ke login
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = 'login_admin.html';
+      } else {
+        // Ambil data masukan dari Firebase Realtime Database
+        db.ref('masukan').on('value', snapshot => {
+          const data = snapshot.val();
+          const list = document.getElementById('masukanList');
+          list.innerHTML = '';
+          if(data){
+            Object.entries(data).forEach(([key, val]) => {
+              const li = document.createElement('li');
+              li.textContent = `${val.nama} (${val.email}): ${val.pesan}`;
+              list.appendChild(li);
+            });
+          } else {
+            list.textContent = 'Tidak ada masukan.';
+          }
+        });
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      auth.signOut().then(() => {
+        window.location.href = 'login_admin.html';
+      });
+    });
+  </script>
+</body>
+</html>
